@@ -1,8 +1,5 @@
-
-
 #include <Arduino.h>
 #include <stdio.h>
-//#include <memory>
 
 #include "DisplayRow.h"
 #include "Pin.h"
