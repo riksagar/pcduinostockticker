@@ -49,7 +49,7 @@ bool SagarDisplay::setup(){
 
 	if (NULL == data) return false;
 
-	if (WIDTH != data->getWidth()) {
+	if (data->getWidth() < WIDTH) {
 		// error
 		return false;
 	}
