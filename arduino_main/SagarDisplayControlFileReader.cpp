@@ -1,28 +1,16 @@
+
+
 #include <stdio.h>
+
+
 #include "SagarDisplayControlFileReader.h"
 
-typedef SDCReader *(*VersionedReader)(unsigned char version, unsigned char flag1, unsigned char flag2, unsigned char flag3, unsigned char *dataBytes);
 
 SDCReader *SDCReader::loadBytes(unsigned char *dataBytes) {
-	VersionedReader readers[1] = {
-		SDCReader::loadBytesV0
-	};
-
-	unsigned char ver = *dataBytes++;
-	unsigned char flag1 = *dataBytes++;
-	unsigned char flag2 = *dataBytes++;
-	unsigned char flag3 = *dataBytes++;
-
-
-	if (  (sizeof(readers)/sizeof(readers[0])) < ver ){
-		return NULL;
-	}
-
-	return readers[ver](ver, flag1, flag2, flag3, dataBytes);
-}
-
-
-SDCReader *SDCReader::loadBytesV0(unsigned char version, unsigned char f1, unsigned char f2, unsigned char f3, unsigned char *dataBytes) {
+	if (0 != *dataBytes++) return NULL; // version
+	if (0 != *dataBytes++) return NULL; // flags
+	if (0 != *dataBytes++) return NULL; // flags
+	if (0 != *dataBytes++) return NULL; // flags
 
 	unsigned short int width = *dataBytes++;
 	unsigned short int height = *dataBytes++;
