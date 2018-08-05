@@ -17,6 +17,8 @@ private:
 	unsigned short int dispHeight;
 	unsigned long int payloadSize;
 
+	static SDCReader *loadBytesV0(unsigned char version, unsigned char f1, unsigned char f2, unsigned char f3, unsigned char *dataBytes);
+
 
 };
 
