@@ -8,11 +8,11 @@ public:
 	unsigned short int getHeight();
 	unsigned long int const *get(int column);
 
+	SDCReader(unsigned short int width, unsigned short int height, unsigned long int payloadSize, unsigned long int *data);
 	~SDCReader();
 
 private:
 	unsigned long int *data;
-	SDCReader(unsigned short int width, unsigned short int height, unsigned long int payloadSize, unsigned long int *data);
 	unsigned short int dispWidth;
 	unsigned short int dispHeight;
 	unsigned long int payloadSize;
